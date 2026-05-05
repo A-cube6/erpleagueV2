@@ -54,6 +54,57 @@ const healthChecklist = [
   'Evaluate landscape transformation and data migration needs',
   'Recommend practical next steps — tailored to your situation'
 ];
+const trustedClients = [
+  {
+    name: 'Metalla Royalty & Streaming',
+    sector: 'Mining Royalty',
+    website: 'https://www.metallaroyalty.com/',
+    logo: 'https://logo.clearbit.com/metallaroyalty.com'
+  },
+  {
+    name: 'Universal Pallets',
+    sector: 'Manufacturing',
+    website: 'https://www.universalpallets.com/',
+    logo: 'https://logo.clearbit.com/universalpallets.com'
+  },
+  {
+    name: 'Construction Signs Ltd.',
+    sector: 'Construction',
+    website: 'https://constructionsignsltd.com/',
+    logo: 'https://logo.clearbit.com/constructionsignsltd.com'
+  },
+  {
+    name: 'Ascent Helicopters',
+    sector: 'Aviation',
+    website: 'https://www.ascenthelicopters.ca/',
+    logo: 'https://logo.clearbit.com/ascenthelicopters.ca'
+  },
+  {
+    name: 'CS Energy',
+    sector: 'Energy',
+    website: 'https://www.csenergy.com.au/',
+    logo: 'https://logo.clearbit.com/csenergy.com.au'
+  },
+  {
+    name: 'Responsive',
+    sector: 'SaaS',
+    website: 'https://www.responsive.io/',
+    logo: 'https://logo.clearbit.com/responsive.io'
+  },
+  {
+    name: 'Elemental Royalty',
+    sector: 'Mining Royalty',
+    website: 'https://elementalroyalty.com/',
+    logo: 'https://logo.clearbit.com/elementalroyalty.com'
+  },
+  {
+    name: 'LEA Professional',
+    sector: 'Professional Services',
+    website: 'https://leaprofessional.com/',
+    logo: 'https://logo.clearbit.com/leaprofessional.com'
+  }
+];
+
 
 export default function HomePage() {
   return (
@@ -110,16 +161,25 @@ export default function HomePage() {
 
       <section className="client-trust" aria-label="Trusted by Australian organisations">
         <div className="container">
-          <p className="client-trust-title">Trusted by Australian Organisations</p>
-          <div className="client-logo-row">
-            <div className="client-logo-card"><strong>Client A</strong><small>Government</small></div>
-            <div className="client-logo-card"><strong>Client B</strong><small>Manufacturing</small></div>
-            <div className="client-logo-card"><strong>Client C</strong><small>Healthcare</small></div>
-            <div className="client-logo-card"><strong>Client D</strong><small>Prof. Services</small></div>
-            <div className="client-logo-card"><strong>Client E</strong><small>Retail</small></div>
-            <div className="client-logo-card"><strong>Client F</strong><small>Construction</small></div>
+          <p className="client-trust-title">Trusted by World-wide Organisations</p>
+          <div className="client-logo-row client-logo-row-eight">
+            {trustedClients.map((client) => (
+              <a
+                className="client-logo-card client-logo-link"
+                href={client.website}
+                target="_blank"
+                rel="noreferrer"
+                key={client.name}
+                aria-label={`Open ${client.name} website`}
+              >
+                <span className="client-logo-image-wrap">
+                  <img src={client.logo} alt={`${client.name} logo`} />
+                </span>
+                <strong>{client.name}</strong>
+                <small>{client.sector}</small>
+              </a>
+            ))}
           </div>
-          <p className="client-logo-note">Replace with actual client logos (monochrome). Written approval required before publishing.</p>
         </div>
       </section>
 

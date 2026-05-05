@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h3>ERPLeague Australia</h3>
+            <img className="footer-brand-logo" src="/assets/erp-league-logo.png" alt="ERPLeague Australia" />
             <p>Boutique Australian SAP and ERP consultancy for senior-led support, transformation and managed services.</p>
             <p>
               <a href="mailto:hello@erpleague.com.au">hello@erpleague.com.au</a>

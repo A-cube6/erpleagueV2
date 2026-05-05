@@ -25,9 +25,8 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''} ${open ? 'open' : ''}`}>
       <div className="container header-inner">
-        <Link className="logo" href="/" onClick={closeMenu}>
-          <span className="logo-mark">ERP</span>
-          <span>ERPLeague</span>
+        <Link className="logo logo-with-image" href="/" onClick={closeMenu} aria-label="ERPLeague home">
+          <img className="brand-logo-img" src="/assets/erp-league-logo.png" alt="ERPLeague" />
         </Link>
 
         <nav className="nav-desktop" aria-label="Main navigation">
