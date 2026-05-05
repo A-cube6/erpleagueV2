@@ -12,7 +12,7 @@ export function Footer() {
             <p>
               <a href="mailto:hello@erpleague.com.au">hello@erpleague.com.au</a>
               <a href="tel:+61410284201">+61 410 284 201</a>
-              <a href="https://linkedin.com/company/erpleague" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://in.linkedin.com/company/erp-league" target="_blank" rel="noreferrer">LinkedIn</a>
             </p>
           </div>
           <div>
@@ -25,6 +25,7 @@ export function Footer() {
             <h4>Company</h4>
             <Link href="/#about">About ERPLeague</Link>
             <Link href="/partner">Partner Program</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/portal">Client Portal</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/#contact">Contact</Link>

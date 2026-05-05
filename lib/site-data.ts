@@ -252,6 +252,7 @@ export const navigation = [
   { label: 'Industries', href: '/industries' },
   { label: 'GROW with SAP', href: '/grow-with-sap' },
   { label: 'Partner', href: '/partner' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Client Portal', href: '/portal' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' }
