@@ -80,3 +80,20 @@ This project now includes Tailwind CSS and `lucide-react`.
 - Existing premium site styling remains in `app/globals.css` to avoid unnecessary rewrite churn.
 - New components can use Tailwind utility classes directly.
 - Icons are provided by `lucide-react`; the homepage value cards now use Lucide icons.
+
+
+## Generated service visuals
+
+Optimised WebP illustrations are stored in:
+
+```text
+public/Asset/services/
+```
+
+They are referenced using root-relative paths such as:
+
+```tsx
+/Asset/services/service-sap-support-desk.webp
+```
+
+The images are compressed WebP versions of the generated C-suite style ERP/SAP service visuals and are intended for production website use.

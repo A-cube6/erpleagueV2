@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { ButtonLink } from '@/components/Buttons';
-import { PillarsVisual } from '@/components/Visuals';
 
 export const metadata: Metadata = {
   title: 'GROW with SAP | ERPLeague Australia',
@@ -71,7 +71,16 @@ export default function GrowWithSapPage() {
               <h2>Everything you need to run a modern business on SAP — in the cloud, from day one</h2>
               <p>GROW with SAP is SAP's flagship offering for mid-market companies moving to cloud ERP. It combines SAP S/4HANA Cloud Public Edition, adoption acceleration services, community, and learning — all in one package. You get industry best practices baked in, regular automated updates, and a deployment approach designed for speed and predictability.</p>
             </div>
-            <PillarsVisual />
+            <div className="visual-card grow-pillar-image-card large">
+              <Image
+                src="/Asset/services/service-grow-with-sap-solutions-services-community-learning.webp"
+                alt="GROW with SAP pillars: Solutions, Services, Community and Learning"
+                width={1200}
+                height={675}
+                sizes="(max-width: 900px) 100vw, 46vw"
+                className="service-visual-img"
+              />
+            </div>
           </div>
         </div>
       </section>

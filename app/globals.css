@@ -2396,3 +2396,177 @@ body.menu-open {
 .service-card[class*="service-theme-"]:hover {
   border-left-color: transparent;
 }
+
+
+/* v13 partner technology showcase cards */
+.partner-showcase-section {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(55, 138, 221, 0.14), transparent 30%),
+    linear-gradient(180deg, #08152b 0%, #09162d 100%);
+}
+
+.partner-showcase-section .eyebrow.dark {
+  color: rgba(212, 223, 235, 0.72);
+}
+
+.partner-showcase-title {
+  margin-bottom: 18px;
+  color: #0f4a94;
+}
+
+.partner-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.partner-showcase-card {
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid rgba(10, 39, 73, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
+}
+
+.partner-showcase-card h3 {
+  margin: 0 0 10px;
+  color: var(--color-navy);
+  font-size: 20px;
+}
+
+.partner-showcase-card p {
+  margin: 0 0 16px;
+  color: #4e5f73;
+  line-height: 1.9;
+}
+
+.partner-showcase-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.partner-showcase-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  font-size: 18px;
+}
+
+.partner-showcase-icon.netsuite-icon {
+  font-size: 10px;
+}
+
+.partner-mini-badge {
+  margin-bottom: 0;
+}
+
+.partner-badge-blue {
+  color: #0f4a94;
+  background: #e8f0fb;
+}
+
+.partner-badge-green {
+  color: #16624c;
+  background: #dff1e8;
+}
+
+.partner-badge-orange {
+  color: #a64d1f;
+  background: #f7e7e0;
+}
+
+.partner-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.partner-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.partner-chip-blue {
+  color: #0f4a94;
+  background: #e8f0fb;
+}
+
+.partner-chip-green {
+  color: #16624c;
+  background: #dff1e8;
+}
+
+.partner-chip-orange {
+  color: #a64d1f;
+  background: #f7e7e0;
+}
+
+@media (max-width: 960px) {
+  .partner-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* v14: generated WebP service assets */
+.service-visual-image-card,
+.grow-pillar-image-card {
+  position: relative;
+  min-height: 260px;
+  background: #061b36;
+  border-color: rgba(24, 95, 165, 0.26);
+  box-shadow: 0 20px 42px rgba(4, 44, 83, 0.18);
+}
+
+.service-visual-image-card.large,
+.grow-pillar-image-card.large {
+  min-height: 285px;
+}
+
+.service-visual-image-card.short {
+  min-height: 230px;
+}
+
+.service-visual-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.service-detail:hover .service-visual-img,
+.grow-pillar-image-card:hover .service-visual-img {
+  transform: scale(1.025);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+@media (max-width: 900px) {
+  .service-visual-image-card,
+  .grow-pillar-image-card,
+  .service-visual-image-card.large,
+  .grow-pillar-image-card.large,
+  .service-visual-image-card.short {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-visual-image-card,
+  .grow-pillar-image-card,
+  .service-visual-image-card.large,
+  .grow-pillar-image-card.large,
+  .service-visual-image-card.short {
+    min-height: 190px;
+    border-radius: 16px;
+  }
+}

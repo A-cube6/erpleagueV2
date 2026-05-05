@@ -13,6 +13,34 @@ const partnerTypes = [
   ['Delivery Partners', 'SAP functional/technical consultants and boutique firms who want to sub-contract into ERPLeague projects or overflow capacity.', 'Flexible sub-contract arrangements, senior-led projects, clear scopes and rates']
 ];
 
+
+const technologyPartnerships = [
+  {
+    name: 'SAP',
+    partnerType: 'Silver Partner',
+    description: 'Certified SAP partner delivering S/4HANA readiness, GROW with SAP, BTP/Fiori, landscape transformation, Security/IAM & GRC and managed support for Australian businesses.',
+    iconText: 'SAP',
+    iconClass: 'sap-icon',
+    chips: ['S/4HANA', 'GROW with SAP', 'GRC/IAG', 'BTP', 'SDT/SLO']
+  },
+  {
+    name: 'Oracle NetSuite',
+    partnerType: 'Alliance Partner',
+    description: 'NetSuite implementation, support and optimisation for Australian businesses. Finance, inventory, order management, reporting, integration and custom scripting.',
+    iconText: 'NETSUITE',
+    iconClass: 'netsuite-icon',
+    chips: ['Finance', 'Inventory', 'SuiteAnalytics', 'Integration']
+  },
+  {
+    name: 'Databricks',
+    partnerType: 'Technology Partner',
+    description: 'Data lakehouse, analytics and AI/ML workloads alongside SAP environments. ERPLeague integrates Databricks with SAP data sources to unlock real-time analytics and predictive insights.',
+    iconText: '◆',
+    iconClass: 'databricks-icon',
+    chips: ['Data Lakehouse', 'SAP Integration', 'AI/ML', 'Analytics']
+  }
+];
+
 const whyPartner = [
   ['Direct access to ERPLeague senior leadership — no account management layers', 'Transparent and honest communication about client situations'],
   ['Clear commercial terms with no surprises or hidden clip fees', "Commitment to the client's best outcome above all else"],
@@ -42,6 +70,37 @@ export default function PartnerPage() {
                 <h3>{type}</h3>
                 <p><strong>Who this is for:</strong> {who}</p>
                 <p><strong>What we offer:</strong> {offer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section partner-showcase-section">
+        <div className="container">
+          <p className="eyebrow dark">Technology Partnerships</p>
+          <h2 className="partner-showcase-title">Our technology partnerships</h2>
+          <div className="partner-showcase-grid">
+            {technologyPartnerships.map((partner) => (
+              <article className="partner-showcase-card" key={partner.name}>
+                <div className="partner-showcase-head">
+                  <span className={`partner-icon partner-showcase-icon ${partner.iconClass}`}>{partner.iconText}</span>
+                  <div>
+                    <h3>{partner.name}</h3>
+                    <span className={`badge ${partner.name === 'Databricks' ? '' : 'green'} partner-mini-badge ${partner.name === 'SAP' ? 'partner-badge-blue' : partner.name === 'Oracle NetSuite' ? 'partner-badge-green' : 'partner-badge-orange'}`}>{partner.partnerType}</span>
+                  </div>
+                </div>
+                <p>{partner.description}</p>
+                <div className="partner-chip-row">
+                  {partner.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      className={`partner-chip ${partner.name === 'SAP' ? 'partner-chip-blue' : partner.name === 'Oracle NetSuite' ? 'partner-chip-green' : 'partner-chip-orange'}`}
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
