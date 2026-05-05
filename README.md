@@ -6,7 +6,7 @@ A clean Next.js website package built from the ERPLeague Australia Website Devel
 
 - Next.js App Router
 - React + TypeScript
-- Plain CSS design system using the specification tokens
+- Tailwind CSS configured alongside the existing premium CSS design system
 - Vercel-ready deployment
 - GitHub-ready repository structure
 - No backend required in the current version
@@ -70,3 +70,13 @@ npm install --registry=https://registry.npmjs.org/
 ```
 
 This project includes a `.npmrc` pointing to the public npm registry so VS Code, GitHub and Vercel installs should use the normal public package source.
+
+
+## Styling stack
+
+This project now includes Tailwind CSS and `lucide-react`.
+
+- Tailwind is configured in `tailwind.config.js` and processed via `postcss.config.js`.
+- Existing premium site styling remains in `app/globals.css` to avoid unnecessary rewrite churn.
+- New components can use Tailwind utility classes directly.
+- Icons are provided by `lucide-react`; the homepage value cards now use Lucide icons.

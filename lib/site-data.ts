@@ -12,6 +12,11 @@ export const serviceOptions = [
   'Other'
 ];
 
+export function serviceThemeClass(badge: string) {
+  const key = badge.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  return `service-theme-${key}`;
+}
+
 export const services = [
   {
     id: 'sap-support',

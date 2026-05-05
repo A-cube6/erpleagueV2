@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-navy: #042c53;
   --color-blue: #185fa5;
@@ -302,7 +306,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
+  min-height: 84px;
 }
 
 .logo {
@@ -553,13 +557,21 @@ h3 {
 .icon-circle {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   margin-bottom: 18px;
   border-radius: 14px;
-  background: #eff7ff;
+  background: linear-gradient(180deg, #f3f9ff 0%, #e8f3ff 100%);
   color: var(--color-blue);
-  font-size: 24px;
+  border: 1px solid rgba(24, 95, 165, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.92), 0 8px 18px rgba(4, 44, 83, 0.08);
+}
+
+.value-icon-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  stroke: currentColor;
 }
 
 .services-snapshot {
@@ -2063,33 +2075,40 @@ h2 {
 /* Logo + client trust update */
 .logo-with-image {
   gap: 0;
-  min-width: 150px;
+  min-width: 134px;
 }
 
 .brand-logo-img {
   display: block;
-  width: 148px;
-  height: 44px;
-  border-radius: 10px;
+  width: 128px;
+  height: 78px;
+  padding: 7px 9px;
+  box-sizing: border-box;
+  border-radius: 14px;
   object-fit: contain;
-  background: #ffdf59;
-  box-shadow: 0 10px 24px rgba(4, 44, 83, 0.18), inset 0 1px 0 rgba(255,255,255,0.35);
+  background: #02070d;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 32px rgba(4, 44, 83, 0.20), inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 .site-header.scrolled .brand-logo-img,
 .site-header.open .brand-logo-img {
-  box-shadow: 0 8px 20px rgba(4, 44, 83, 0.11);
+  border-color: rgba(4, 44, 83, 0.16);
+  box-shadow: 0 10px 22px rgba(4, 44, 83, 0.14), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
 .footer-brand-logo {
   display: block;
-  width: 164px;
-  height: 50px;
+  width: 154px;
+  height: 94px;
+  padding: 9px 11px;
+  box-sizing: border-box;
   margin-bottom: 18px;
-  border-radius: 12px;
+  border-radius: 16px;
   object-fit: contain;
-  background: #ffdf59;
-  box-shadow: 0 18px 44px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.35);
+  background: #02070d;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
 .client-logo-row-eight {
@@ -2143,9 +2162,15 @@ h2 {
 }
 
 @media (max-width: 640px) {
+  .header-inner {
+    min-height: 78px;
+  }
+
   .brand-logo-img {
-    width: 132px;
-    height: 40px;
+    width: 104px;
+    height: 64px;
+    padding: 6px 7px;
+    border-radius: 12px;
   }
 
   .logo-with-image {
@@ -2194,4 +2219,180 @@ h2 {
   transform: translateY(-1px);
   border-color: rgba(24, 95, 165, 0.32);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 12px 22px rgba(4, 44, 83, 0.12);
+}
+
+/* v11 patch: Tailwind-assisted mobile navigation, forms and service theme colours */
+body.menu-open {
+  overflow: auto;
+}
+
+.mobile-nav-link,
+.mobile-nav-button {
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  color: var(--color-navy);
+  background: transparent;
+  text-align: left;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-button:hover {
+  background: #eff7ff;
+  color: var(--color-blue);
+}
+
+.mobile-nav-cta {
+  justify-content: center;
+  margin-top: 4px;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(24,95,165,0.98), rgba(55,138,221,0.95));
+  text-align: center;
+  box-shadow: 0 14px 30px rgba(24, 95, 165, 0.22);
+}
+
+@media (max-width: 1040px) {
+  .mobile-panel {
+    position: fixed;
+    top: 84px;
+    right: 16px;
+    left: auto;
+    bottom: auto;
+    width: min(430px, calc(100vw - 32px));
+    max-height: calc(100vh - 102px);
+    overflow: auto;
+    gap: 6px;
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(8px, -10px) scale(0.98);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .mobile-panel.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0, 0) scale(1);
+  }
+
+  .mobile-panel a {
+    border-bottom: 0;
+  }
+
+  .mobile-services {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .mobile-services a {
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .mobile-services a:hover {
+    background: #ffffff;
+    color: var(--color-blue);
+  }
+}
+
+@media (max-width: 520px) {
+  .mobile-panel {
+    top: 82px;
+    right: 12px;
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 98px);
+  }
+}
+
+.service-card::before {
+  width: 4px;
+  border-radius: 20px 0 0 20px;
+}
+
+.badge.service-theme-support {
+  color: #075985;
+  background: #e0f2fe;
+}
+
+.service-card.service-theme-support:hover::before {
+  background: #0284c7;
+}
+
+.badge.service-theme-modernisation {
+  color: #5b21b6;
+  background: #ede9fe;
+}
+
+.service-card.service-theme-modernisation:hover::before {
+  background: #7c3aed;
+}
+
+.badge.service-theme-cloud-erp {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.service-card.service-theme-cloud-erp:hover::before {
+  background: #16a34a;
+}
+
+.badge.service-theme-transformation {
+  color: #9a3412;
+  background: #ffedd5;
+}
+
+.service-card.service-theme-transformation:hover::before {
+  background: #f97316;
+}
+
+.badge.service-theme-development {
+  color: #0f766e;
+  background: #ccfbf1;
+}
+
+.service-card.service-theme-development:hover::before {
+  background: #14b8a6;
+}
+
+.badge.service-theme-integration {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.service-card.service-theme-integration:hover::before {
+  background: #2563eb;
+}
+
+.badge.service-theme-advisory {
+  color: #7c2d12;
+  background: #fef3c7;
+}
+
+.service-card.service-theme-advisory:hover::before {
+  background: #d97706;
+}
+
+.badge.service-theme-managed {
+  color: #334155;
+  background: #e2e8f0;
+}
+
+.service-card.service-theme-managed:hover::before {
+  background: #475569;
+}
+
+.badge.service-theme-erp {
+  color: #86198f;
+  background: #fae8ff;
+}
+
+.service-card.service-theme-erp:hover::before {
+  background: #c026d3;
+}
+
+.service-card[class*="service-theme-"]:hover {
+  border-left-color: transparent;
 }

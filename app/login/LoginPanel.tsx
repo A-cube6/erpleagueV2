@@ -13,7 +13,7 @@ export function LoginPanel() {
   };
 
   return (
-    <div className="login-card glass-panel">
+    <div className="login-card glass-panel rounded-[26px] border border-white/30 bg-white/95 p-6 shadow-premium backdrop-blur-xl md:p-8">
       <div className="login-card-heading">
         <span className="login-lock" aria-hidden="true">⌁</span>
         <div>
@@ -22,16 +22,16 @@ export function LoginPanel() {
         </div>
       </div>
 
-      <div className="field">
-        <label htmlFor="userId">User ID</label>
-        <input id="userId" value={userId} onChange={(event) => { setUserId(event.target.value); setSignedIn(false); }} autoComplete="username" />
+      <div className="field grid gap-2">
+        <label className="text-[13px] font-bold text-navy" htmlFor="userId">User ID</label>
+        <input className="w-full !rounded-xl !border !border-slate-200 !bg-white !px-4 !py-3 text-[15px] text-slate-900 outline-none transition focus:!border-blue focus:!ring-4 focus:!ring-blue/10" id="userId" value={userId} onChange={(event) => { setUserId(event.target.value); setSignedIn(false); }} autoComplete="username" />
       </div>
-      <div className="field">
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value); setSignedIn(false); }} autoComplete="current-password" />
+      <div className="field grid gap-2">
+        <label className="text-[13px] font-bold text-navy" htmlFor="password">Password</label>
+        <input className="w-full !rounded-xl !border !border-slate-200 !bg-white !px-4 !py-3 text-[15px] text-slate-900 outline-none transition focus:!border-blue focus:!ring-4 focus:!ring-blue/10" id="password" type="password" value={password} onChange={(event) => { setPassword(event.target.value); setSignedIn(false); }} autoComplete="current-password" />
       </div>
 
-      <button className="btn btn-primary login-button" type="button" onClick={handleLogin}>Sign In →</button>
+      <button className="btn btn-primary login-button w-full" type="button" onClick={handleLogin}>Sign In →</button>
 
       {signedIn && (
         <div className="login-success">

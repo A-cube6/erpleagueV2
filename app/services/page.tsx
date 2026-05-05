@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { services } from '@/lib/site-data';
+import { services, serviceThemeClass } from '@/lib/site-data';
 import { ButtonLink } from '@/components/Buttons';
 import { VisualCard } from '@/components/Visuals';
 
@@ -24,7 +24,7 @@ export default function ServicesPage() {
           {services.map((service) => (
             <article id={service.id} className="service-detail" key={service.id}>
               <div className="service-copy">
-                <span className="badge">{service.badge}</span>
+                <span className={`badge ${serviceThemeClass(service.badge)}`}>{service.badge}</span>
                 <h2>{service.headline}</h2>
                 <p>{service.body}</p>
 

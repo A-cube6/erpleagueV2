@@ -1,26 +1,42 @@
 import Link from 'next/link';
 import { ButtonLink } from '@/components/Buttons';
 import { ContactForm } from '@/components/Forms';
-import { services, industries } from '@/lib/site-data';
+import { services, industries, serviceThemeClass } from '@/lib/site-data';
+import { Handshake, MapPinned, PhoneCall, Wrench } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const values = [
+type ValueIcon = 'phone' | 'country' | 'practical' | 'handshake';
+
+const valueIconMap: Record<ValueIcon, LucideIcon> = {
+  phone: PhoneCall,
+  country: MapPinned,
+  practical: Wrench,
+  handshake: Handshake
+};
+
+function IconGlyph({ name }: { name: ValueIcon }) {
+  const Icon = valueIconMap[name];
+  return <Icon className="value-icon-svg" strokeWidth={1.9} aria-hidden="true" />;
+}
+
+const values: Array<{ icon: ValueIcon; title: string; body: string }> = [
   {
-    icon: '◎',
+    icon: 'phone',
     title: 'Direct Senior Access',
     body: 'Work directly with experienced SAP consultants from day one — no handoffs to juniors after the sale.'
   },
   {
-    icon: '◈',
+    icon: 'country',
     title: 'Australian-First Delivery',
     body: 'Local team, local time zones, and deep understanding of Australian compliance and business requirements.'
   },
   {
-    icon: '◇',
+    icon: 'practical',
     title: 'Practical, Not Theoretical',
     body: 'Advice tied to real business operations — not slide decks. We focus on outcomes that move your organisation forward.'
   },
   {
-    icon: '◉',
+    icon: 'handshake',
     title: 'Flexible Engagement Models',
     body: 'Advisory, project-based, or ongoing managed support — structured around what your business actually needs.'
   }
@@ -190,8 +206,8 @@ export default function HomePage() {
           <p className="lead">Most ERP problems don't need a 50-person consulting machine. They need a senior expert who understands your processes, diagnoses the root cause, and moves work forward. That's what we do every day.</p>
           <div className="grid grid-4 services-snapshot">
             {values.map((value, index) => (
-              <article className={`card fade-in-up delay-${index + 1}`} key={value.title}>
-                <div className="icon-circle">{value.icon}</div>
+              <article className={`card fade-in-up delay-${index + 1} rounded-card shadow-card transition-transform duration-200 hover:-translate-y-1`} key={value.title}>
+                <div className="icon-circle"><IconGlyph name={value.icon} /></div>
                 <h3>{value.title}</h3>
                 <p>{value.body}</p>
               </article>
@@ -206,17 +222,19 @@ export default function HomePage() {
           <h2>Practical SAP & ERP capability across the full delivery lifecycle</h2>
           <p className="lead">From day-to-day support to cloud transformation — we cover the services Australian mid-market and enterprise teams need most.</p>
           <div className="grid grid-3 services-snapshot">
-            {services.map((service, index) => (
-              <Link className="card service-card" href={service.href} key={service.title}>
-                <div className="card-topline">
-                  <span className="badge">{service.badge}</span>
-                  <span className="card-number">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.body.slice(0, 145)}...</p>
-                <span className="link-arrow">Explore →</span>
-              </Link>
-            ))}
+            {services.map((service) => {
+              const themeClass = serviceThemeClass(service.badge);
+              return (
+                <Link className={`card service-card ${themeClass}`} href={service.href} key={service.title}>
+                  <div className="card-topline">
+                    <span className={`badge ${themeClass}`}>{service.badge}</span>
+                  </div>
+                  <h3>{service.title}</h3>
+                  <p>{service.body.slice(0, 145)}...</p>
+                  <span className="link-arrow">Explore →</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

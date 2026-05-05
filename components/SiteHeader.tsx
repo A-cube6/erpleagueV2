@@ -2,11 +2,13 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { navigation, services } from '@/lib/site-data';
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 26);
@@ -20,7 +22,10 @@ export function SiteHeader() {
     return () => document.body.classList.remove('menu-open');
   }, [open]);
 
-  const closeMenu = () => setOpen(false);
+  const closeMenu = () => {
+    setOpen(false);
+    setMobileServicesOpen(false);
+  };
 
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''} ${open ? 'open' : ''}`}>
@@ -50,23 +55,45 @@ export function SiteHeader() {
           <Link className="nav-link nav-cta" href="/#contact">Book Health Check</Link>
         </nav>
 
-        <button className="menu-toggle" aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen((value) => !value)}>
-          {open ? '✕' : '☰'}
+        <button
+          className="menu-toggle inline-flex items-center justify-center transition-transform duration-200 hover:-translate-y-0.5"
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? <X size={22} strokeWidth={2.2} /> : <Menu size={22} strokeWidth={2.2} />}
         </button>
       </div>
 
-      <nav className={`mobile-panel ${open ? 'show' : ''}`} aria-label="Mobile navigation">
-        <Link href="/" onClick={closeMenu}>Home</Link>
-        <Link href="/services" onClick={closeMenu}>Services</Link>
-        <div className="mobile-services">
-          {services.map((service) => (
-            <Link href={service.href} onClick={closeMenu} key={service.title}>{service.title}</Link>
-          ))}
-        </div>
+      <nav
+        className={`mobile-panel ${open ? 'show' : ''} rounded-[24px] border border-slate-200/80 bg-white/95 p-3 shadow-2xl backdrop-blur-xl md:p-4`}
+        aria-label="Mobile navigation"
+      >
+        <Link className="mobile-nav-link" href="/" onClick={closeMenu}>Home</Link>
+
+        <button
+          type="button"
+          className="mobile-nav-link mobile-nav-button flex w-full items-center justify-between"
+          aria-expanded={mobileServicesOpen}
+          onClick={() => setMobileServicesOpen((value) => !value)}
+        >
+          <span>Services</span>
+          <ChevronDown className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} size={18} />
+        </button>
+
+        {mobileServicesOpen && (
+          <div className="mobile-services rounded-2xl bg-slate-50/90 p-2 ring-1 ring-slate-200/80">
+            <Link href="/services" onClick={closeMenu}>Services Overview</Link>
+            {services.map((service) => (
+              <Link href={service.href} onClick={closeMenu} key={service.title}>{service.title}</Link>
+            ))}
+          </div>
+        )}
+
         {navigation.map((item) => (
-          <Link href={item.href} onClick={closeMenu} key={item.label}>{item.label}</Link>
+          <Link className="mobile-nav-link" href={item.href} onClick={closeMenu} key={item.label}>{item.label}</Link>
         ))}
-        <Link href="/#contact" onClick={closeMenu}>Book Health Check</Link>
+        <Link className="mobile-nav-link mobile-nav-cta" href="/#contact" onClick={closeMenu}>Book Health Check</Link>
       </nav>
     </header>
   );
