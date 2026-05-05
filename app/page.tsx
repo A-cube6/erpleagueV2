@@ -59,49 +59,49 @@ const trustedClients = [
     name: 'Metalla Royalty & Streaming',
     sector: 'Mining Royalty',
     website: 'https://www.metallaroyalty.com/',
-    logo: 'https://logo.clearbit.com/metallaroyalty.com'
+    icon: 'MIN'
   },
   {
     name: 'Universal Pallets',
     sector: 'Manufacturing',
     website: 'https://www.universalpallets.com/',
-    logo: 'https://logo.clearbit.com/universalpallets.com'
+    icon: 'MFG'
   },
   {
     name: 'Construction Signs Ltd.',
     sector: 'Construction',
     website: 'https://constructionsignsltd.com/',
-    logo: 'https://logo.clearbit.com/constructionsignsltd.com'
+    icon: 'CON'
   },
   {
     name: 'Ascent Helicopters',
     sector: 'Aviation',
     website: 'https://www.ascenthelicopters.ca/',
-    logo: 'https://logo.clearbit.com/ascenthelicopters.ca'
+    icon: 'AVI'
   },
   {
     name: 'CS Energy',
     sector: 'Energy',
     website: 'https://www.csenergy.com.au/',
-    logo: 'https://logo.clearbit.com/csenergy.com.au'
+    icon: 'NRG'
   },
   {
     name: 'Responsive',
-    sector: 'SaaS',
+    sector: 'SaaS Technology',
     website: 'https://www.responsive.io/',
-    logo: 'https://logo.clearbit.com/responsive.io'
+    icon: 'SaaS'
   },
   {
     name: 'Elemental Royalty',
-    sector: 'Mining Royalty',
+    sector: 'Resources Royalty',
     website: 'https://elementalroyalty.com/',
-    logo: 'https://logo.clearbit.com/elementalroyalty.com'
+    icon: 'RES'
   },
   {
     name: 'LEA Professional',
     sector: 'Professional Services',
     website: 'https://leaprofessional.com/',
-    logo: 'https://logo.clearbit.com/leaprofessional.com'
+    icon: 'PRO'
   }
 ];
 
@@ -159,9 +159,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="client-trust" aria-label="Trusted by Australian organisations">
+      <section className="client-trust" aria-label="Trusted by global organisations">
         <div className="container">
-          <p className="client-trust-title">Trusted by World-wide Organisations</p>
+          <p className="client-trust-title">Trusted by Global Organisations</p>
           <div className="client-logo-row client-logo-row-eight">
             {trustedClients.map((client) => (
               <a
@@ -172,8 +172,8 @@ export default function HomePage() {
                 key={client.name}
                 aria-label={`Open ${client.name} website`}
               >
-                <span className="client-logo-image-wrap">
-                  <img src={client.logo} alt={`${client.name} logo`} />
+                <span className="client-logo-image-wrap" aria-hidden="true">
+                  <span className="client-industry-icon">{client.icon}</span>
                 </span>
                 <strong>{client.name}</strong>
                 <small>{client.sector}</small>
