@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://erpleague.com.au/sitemap.xml
