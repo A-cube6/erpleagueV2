@@ -79,8 +79,8 @@ export default function PartnerPage() {
             <h2>Start the conversation</h2>
             <p>Use this form if you are a technology vendor, referral partner, delivery partner, or specialist consultant interested in working with ERPLeague.</p>
             <div className="logo-placeholder-row" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
-              <div className="logo-placeholder">SAP</div>
-              <div className="logo-placeholder">NetSuite</div>
+              <div className="logo-placeholder">Technology Partners</div>
+              <div className="logo-placeholder">Delivery Network</div>
             </div>
           </div>
           <PartnerForm />

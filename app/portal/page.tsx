@@ -4,44 +4,55 @@ import { VisualCard } from '@/components/Visuals';
 
 export const metadata: Metadata = {
   title: 'Client Portal | ERPLeague Australia',
-  description: 'ERPLeague client portal placeholder for registered clients and subscribers. Future SAP support workspace, dashboards, automation and collaboration modules.'
+  description: 'Secure ERPLeague workspace for registered clients, subscribers and approved partners.'
 };
 
 const modules = [
-  ['ERP Health Check Dashboard', 'Planned', 'Visual summary of your SAP/ERP environment — maturity score, risks, improvement actions.', 'AI-assisted benchmarking vs industry'],
-  ['SAP Support Workspace', 'Planned', 'Log, track and manage support tickets. View resolution history and knowledge notes.', 'Integration with SAP Solution Manager'],
-  ['Automation & Reporting Toolkit', 'Planned', 'Launch point for ERPLeague automation tools, report templates, and process accelerators.', 'Self-service report builder'],
-  ['Project Collaboration', 'Planned', 'Shared project workspace: milestones, documents, decisions log, stakeholder updates.', 'MS Teams / Slack integration']
+  ['ERP Health Check Dashboard', 'Visual summary of your SAP/ERP environment — maturity score, risks and improvement actions.', 'Benchmark your environment against practical operating standards'],
+  ['SAP Support Workspace', 'Log, track and manage support requests. View resolution history, notes and agreed priorities.', 'Clear visibility across incidents, enhancements and service commitments'],
+  ['Automation & Reporting Toolkit', 'Access ERPLeague automation tools, reporting templates and process accelerators from one workspace.', 'Reusable accelerators for reporting, controls and operations'],
+  ['Project Collaboration', 'Track milestones, decisions, documents and stakeholder updates across active ERPLeague engagements.', 'Shared delivery rhythm across client, partner and ERPLeague teams']
 ];
 
 const tiers = [
-  ['Client Access', 'Organisations engaged with ERPLeague for support or project delivery', 'Support workspace, project documents, health check results, team contacts'],
-  ['Subscriber Access', 'Businesses subscribed to ERPLeague cloud products or accelerators', 'Automation toolkit, reporting templates, product dashboards, usage analytics'],
-  ['Partner Access', 'Approved ERPLeague delivery and technology partners', 'Delivery methodology library, joint project workspace, partner resources']
+  ['Client Access', 'Organisations engaged with ERPLeague for support or project delivery', 'Support workspace, project documents, health check results and team contacts'],
+  ['Subscriber Access', 'Businesses subscribed to ERPLeague cloud products or accelerators', 'Automation toolkit, reporting templates, product dashboards and usage analytics'],
+  ['Partner Access', 'Approved ERPLeague delivery and technology partners', 'Delivery methodology, joint project workspace and partner resources']
 ];
 
 export default function PortalPage() {
   return (
     <>
-      <section className="page-hero purple">
-        <div className="container">
-          <p className="eyebrow dark">Client Portal · Registered Access</p>
-          <h1>Your ERPLeague Workspace — All Your SAP Support in One Place</h1>
-          <p className="hero-copy">A secure, private workspace for ERPLeague clients and subscribers. Manage support requests, track project progress, access reports and dashboards, and connect with your ERPLeague team.</p>
-          <div className="button-row">
-            <ButtonLink href="#" variant="secondary">Log In</ButtonLink>
-            <ButtonLink href="/#contact">Request Portal Access</ButtonLink>
+      <section className="page-hero purple portal-hero-premium">
+        <div className="container portal-hero-grid">
+          <div>
+            <p className="eyebrow dark">Client Portal · Registered Access</p>
+            <h1>Your ERPLeague Workspace — All Your SAP Support in One Place</h1>
+            <p className="hero-copy">A secure, private workspace for ERPLeague clients and subscribers. Manage support requests, track project progress, access reports and dashboards, and connect with your ERPLeague team.</p>
+            <div className="button-row">
+              <ButtonLink href="/login" variant="secondary">Log In</ButtonLink>
+              <ButtonLink href="/#contact">Request Portal Access</ButtonLink>
+            </div>
+          </div>
+          <div className="portal-hero-card" aria-hidden="true">
+            <div className="portal-card-top"><span></span><span></span><span></span></div>
+            <div className="portal-card-title">ERPLeague Workspace</div>
+            <div className="portal-card-row wide"></div>
+            <div className="portal-card-row"></div>
+            <div className="portal-card-grid">
+              <div></div><div></div><div></div><div></div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="grid grid-2" style={{ alignItems: 'center' }}>
+          <div className="grid grid-2 portal-intro" style={{ alignItems: 'center' }}>
             <div>
-              <p className="eyebrow">Future workspace</p>
-              <h2>Built as a credible portal entry point now, ready for real modules later</h2>
-              <p className="lead">The current portal page is public-facing and intentionally does not store or display client data. It can later be connected to Supabase Auth or Auth0 with organisation-level roles and Row Level Security.</p>
+              <p className="eyebrow">Client workspace</p>
+              <h2>A polished entry point for support, reporting and project collaboration</h2>
+              <p className="lead">The portal is designed as a premium workspace for ERPLeague clients, subscribers and approved partners — bringing support visibility, health check insights and delivery updates into one place.</p>
             </div>
             <VisualCard type="portal" />
           </div>
@@ -50,14 +61,15 @@ export default function PortalPage() {
 
       <section className="section section-gray">
         <div className="container">
-          <h2>Portal feature modules</h2>
+          <p className="eyebrow">Workspace modules</p>
+          <h2>Client-facing capability in one clear interface</h2>
           <div className="grid grid-4 services-snapshot">
-            {modules.map(([module, status, description, capability]) => (
-              <article className="card portal-module" key={module}>
-                <span className="badge purple">{status}</span>
+            {modules.map(([module, description, capability]) => (
+              <article className="card portal-module premium-card" key={module}>
+                <span className="badge purple">Workspace</span>
                 <h3>{module}</h3>
                 <p>{description}</p>
-                <p><strong>Future capability:</strong> {capability}</p>
+                <p><strong>Designed for:</strong> {capability}</p>
               </article>
             ))}
           </div>
@@ -66,28 +78,16 @@ export default function PortalPage() {
 
       <section className="section">
         <div className="container">
-          <h2>Access tiers</h2>
+          <p className="eyebrow">Access model</p>
+          <h2>Clear access tiers for clients, subscribers and partners</h2>
           <div className="access-tier-grid">
             {tiers.map(([tier, who, included]) => (
-              <article className="card" key={tier}>
+              <article className="card premium-card" key={tier}>
                 <h3>{tier}</h3>
                 <p><strong>Who gets access:</strong> {who}</p>
                 <p><strong>What's included:</strong> {included}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-gray">
-        <div className="container">
-          <div className="card tech-note">
-            <h2>Security & tech note</h2>
-            <p><strong>Recommended stack:</strong> Supabase Auth or Auth0 for organisation-level roles: client, subscriber, partner and admin.</p>
-            <p><strong>Database:</strong> Supabase PostgreSQL for client data, support tickets and project metadata.</p>
-            <p><strong>Hosting:</strong> Vercel, with GitHub as source control.</p>
-            <p><strong>Current state:</strong> placeholder only — no data stored, no auth required for public demo.</p>
-            <p><strong>Next phase:</strong> add Supabase auth, org-level permissions, Row Level Security and the first real Support Workspace module.</p>
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ type VisualProps = {
 
 export function VisualCard({ type, large, short }: VisualProps) {
   return (
-    <div className={`visual-card ${large ? 'large' : ''} ${short ? 'short' : ''}`} aria-label={`${type} visual placeholder`}>
+    <div className={`visual-card ${large ? 'large' : ''} ${short ? 'short' : ''}`} aria-label={`${type} technical visual`}>
       <ServiceVisual type={type} />
     </div>
   );
@@ -32,7 +32,7 @@ function ServiceVisual({ type }: { type: string }) {
       {type === 'tiers' ? <TierGraphic /> : null}
       {type !== 'integration' && type !== 'landscape' && type !== 'tiers' ? <DefaultGraphic type={type} /> : null}
       <text x="32" y="44" fill="#042c53" fontSize="20" fontWeight="700">{title}</text>
-      <text x="32" y="68" fill="#555555" fontSize="12">Abstract technical illustration placeholder</text>
+      <text x="32" y="68" fill="#555555" fontSize="12">Senior-led SAP and ERP delivery</text>
     </svg>
   );
 }
@@ -141,7 +141,7 @@ export function PillarsVisual() {
       <svg className="diagram" viewBox="0 0 820 280" role="img" aria-label="GROW with SAP pillars visual">
         <rect width="820" height="280" fill="#f7fbff" />
         <text x="40" y="48" fill="#04342c" fontSize="24" fontWeight="800">GROW with SAP</text>
-        <text x="40" y="76" fill="#555" fontSize="13">Placeholder for SAP-approved asset: Solutions · Services · Community · Learning</text>
+        <text x="40" y="76" fill="#555" fontSize="13">Solutions · Services · Community · Learning</text>
         {[
           ['Solutions', 58],
           ['Services', 245],

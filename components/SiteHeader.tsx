@@ -31,6 +31,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="nav-desktop" aria-label="Main navigation">
+          <Link className="nav-link" href="/">Home</Link>
           <div className="nav-dropdown">
             <Link className="nav-button" href="/services">Services</Link>
             <div className="dropdown-panel" aria-label="Services submenu">
@@ -56,6 +57,7 @@ export function SiteHeader() {
       </div>
 
       <nav className={`mobile-panel ${open ? 'show' : ''}`} aria-label="Mobile navigation">
+        <Link href="/" onClick={closeMenu}>Home</Link>
         <Link href="/services" onClick={closeMenu}>Services</Link>
         <div className="mobile-services">
           {services.map((service) => (

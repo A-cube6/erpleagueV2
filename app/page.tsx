@@ -80,15 +80,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="trust-bar">
-        <div className="container trust-inner">
-          <p><strong>Trusted by Australian businesses</strong> across government, manufacturing, professional services and more.</p>
-          <div className="logo-placeholder-row" aria-label="Partner and client logo placeholders">
-            <div className="logo-placeholder">SAP Partner Badge</div>
-            <div className="logo-placeholder">Client Logo</div>
-            <div className="logo-placeholder">Partner Logo</div>
-            <div className="logo-placeholder">Client Logo</div>
+      <section className="technology-partners" aria-label="ERPLeague technology partnerships">
+        <div className="container">
+          <p className="partner-strip-title">Our Technology Partnerships</p>
+          <div className="partner-logo-row">
+            <div className="partner-logo-card">
+              <span className="partner-icon sap-icon">SAP</span>
+              <span><strong>SAP</strong><small>Silver Partner</small></span>
+            </div>
+            <div className="partner-logo-card">
+              <span className="partner-icon netsuite-icon">NETSUITE</span>
+              <span><strong>Oracle NetSuite</strong><small>Alliance Partner</small></span>
+            </div>
+            <div className="partner-logo-card">
+              <span className="partner-icon databricks-icon">◆</span>
+              <span><strong>Databricks</strong><small>Technology Partner</small></span>
+            </div>
+            <div className="partner-logo-card">
+              <span className="partner-icon aws-icon">AWS</span>
+              <span><strong>Amazon AWS</strong><small>Cloud Partner</small></span>
+            </div>
+            <div className="partner-logo-card">
+              <span className="partner-icon azure-icon">▦</span>
+              <span><strong>Microsoft Azure</strong><small>Cloud Partner</small></span>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section className="client-trust" aria-label="Trusted by Australian organisations">
+        <div className="container">
+          <p className="client-trust-title">Trusted by Australian Organisations</p>
+          <div className="client-logo-row">
+            <div className="client-logo-card"><strong>Client A</strong><small>Government</small></div>
+            <div className="client-logo-card"><strong>Client B</strong><small>Manufacturing</small></div>
+            <div className="client-logo-card"><strong>Client C</strong><small>Healthcare</small></div>
+            <div className="client-logo-card"><strong>Client D</strong><small>Prof. Services</small></div>
+            <div className="client-logo-card"><strong>Client E</strong><small>Retail</small></div>
+            <div className="client-logo-card"><strong>Client F</strong><small>Construction</small></div>
+          </div>
+          <p className="client-logo-note">Replace with actual client logos (monochrome). Written approval required before publishing.</p>
         </div>
       </section>
 
@@ -188,7 +219,7 @@ export default function HomePage() {
           <div className="card contact-card">
             <p className="eyebrow">Contact</p>
             <h2>Tell us where your ERP is creating friction</h2>
-            <p>Use the form to request a free health check or ask about support, S/4HANA, GROW with SAP, landscape transformation, BTP/Fiori, integration, advisory, managed support, NetSuite or the future client portal.</p>
+            <p>Use the form to request a free health check or ask about support, S/4HANA, GROW with SAP, landscape transformation, BTP/Fiori, integration, advisory, managed support, NetSuite or the client portal.</p>
             <p><strong>Email:</strong> hello@erpleague.com.au<br /><strong>Phone:</strong> +61 410 284 201</p>
           </div>
           <ContactForm />

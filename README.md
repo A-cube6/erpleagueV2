@@ -19,8 +19,9 @@ A clean Next.js website package built from the ERPLeague Australia Website Devel
 - `/grow-with-sap` GROW with SAP landing page
 - `/industries` Industry page
 - `/partner` Partner program page
-- `/portal` Client portal placeholder
-- `/privacy` Privacy policy placeholder
+- `/portal` Client portal entry page
+- `/login` Client login page with User ID and Password fields
+- `/privacy` Privacy policy
 
 ## Run locally in VS Code
 
@@ -54,9 +55,9 @@ npm run start
 
 ## Important notes
 
-- The client portal is currently public-facing and safe as a placeholder only.
-- Do not show real client data until Supabase/Auth0 authentication and database Row Level Security are implemented.
-- SAP Partner, GROW with SAP, NetSuite and Oracle logos are represented as placeholders. Replace only with approved licensed assets.
+- The client login page is a front-end-only preview and does not authenticate against a backend yet. Connect it to Supabase Auth, Auth0, or another identity provider before using it for real client access.
+- Do not show real client data until authentication, organisation-level permissions and database Row Level Security are implemented.
+- SAP Partner, GROW with SAP, NetSuite and Oracle logos should be added only when approved licensed assets are available.
 - Contact and partner forms currently show a front-end success message only. Add an API route, FormSubmit, Supabase, HubSpot, or similar integration when ready.
 
 ## npm install troubleshooting
