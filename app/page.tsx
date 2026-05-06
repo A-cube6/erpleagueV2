@@ -120,6 +120,56 @@ const trustedClients = [
     icon: 'PRO'
   }
 ];
+const clientOutcomes = [
+  {
+    sector: 'Government',
+    theme: 'outcome-government',
+    href: '/services#sap-support',
+    headline: 'Stabilised SAP support — 60% reduction in incident resolution time over 6 months',
+    body: 'Structured triage, prioritisation and knowledge transfer across a state government SAP environment.',
+    footer: 'SAP Application Support · Managed ERP'
+  },
+  {
+    sector: 'Manufacturing',
+    theme: 'outcome-manufacturing',
+    href: '/grow-with-sap',
+    headline: 'GROW with SAP go-live in 18 weeks. Finance, procurement, supply chain. Zero critical defects.',
+    body: 'Clean data migration and accelerated deployment for a mid-size Australian manufacturer.',
+    footer: 'GROW with SAP · Data Migration'
+  },
+  {
+    sector: 'Professional Services',
+    theme: 'outcome-professional-services',
+    href: '/services#landscape-migration',
+    headline: 'SAP SLO carve-out — 4 company codes, 3 years of history. Completed in 10 weeks.',
+    body: 'Clean separation for a company divestiture using SAP SLO selective data transition.',
+    footer: 'Landscape Transformation · SAP SLO'
+  },
+  {
+    sector: 'Resources & Energy',
+    theme: 'outcome-resources-energy',
+    href: '/services#integration',
+    headline: 'Integrated SAP with operational reporting to improve executive visibility across assets and finance.',
+    body: 'Replaced spreadsheet-heavy status tracking with a cleaner integration and reporting model for decision makers.',
+    footer: 'SAP Integration · Reporting & Analytics'
+  },
+  {
+    sector: 'Retail & Distribution',
+    theme: 'outcome-retail-distribution',
+    href: '/services#btp-fiori',
+    headline: 'Delivered a modern Fiori workflow to reduce manual approvals and improve operational turnaround.',
+    body: 'Designed a clean-core extension approach with user-friendly screens and stronger process governance.',
+    footer: 'SAP BTP · Fiori/UI5 Development'
+  },
+  {
+    sector: 'Mid-Market ERP',
+    theme: 'outcome-midmarket-erp',
+    href: '/services#managed-support',
+    headline: 'Moved from reactive support to proactive monthly ERP health reviews and priority backlog control.',
+    body: 'Established a predictable managed support rhythm with clearer ownership, reporting and improvement actions.',
+    footer: 'Managed ERP Support · ERP Advisory'
+  }
+];
 
 
 export default function HomePage() {
@@ -178,7 +228,7 @@ export default function HomePage() {
       <section className="client-trust" aria-label="Trusted by global organisations">
         <div className="container">
           <p className="client-trust-title">Trusted by Global Organisations</p>
-          <div className="client-logo-row client-logo-row-eight">
+          <div className="client-logo-row client-logo-row-eight trusted-carousel">
             {trustedClients.map((client) => (
               <a
                 className="client-logo-card client-logo-link"
@@ -266,12 +316,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section section-gray section-outcomes">
+        <div className="container">
+          <p className="eyebrow">Client Outcomes</p>
+          <h2>What we&apos;ve delivered for Australian organisations</h2>
+          <div className="client-outcome-grid client-outcome-carousel" aria-label="Client outcome carousel">
+            {clientOutcomes.map((item) => (
+              <Link className={`client-outcome-card client-outcome-link ${item.theme}`} href={item.href} key={item.headline}>
+                <span className="client-outcome-sector">{item.sector}</span>
+                <h3>{item.headline}</h3>
+                <p>{item.body}</p>
+                <small>{item.footer}</small>
+                <span className="outcome-read-more">View related service →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section">
-        <div className="container center-text">
-          <h2>A model that puts clarity before complexity</h2>
-          <div className="process-diagram">
+        <div className="container">
+          <div className="section-heading section-heading-left">
+            <p className="eyebrow">How We Work</p>
+            <h2>A model that puts clarity before complexity</h2>
+            <p className="lead">Four straightforward steps from unclear situation to visible progress.</p>
+          </div>
+          <div className="process-diagram polished-process-diagram">
+            <div className="process-track" aria-hidden="true" />
             {processSteps.map(([title, description], index) => (
-              <article className="process-step" key={title}>
+              <article className="process-step polished-process-step" key={title}>
                 <div className="step-number">{index + 1}</div>
                 <h3>{title}</h3>
                 <p>{description}</p>

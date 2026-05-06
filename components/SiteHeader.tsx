@@ -9,6 +9,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopServicesSuppressed, setDesktopServicesSuppressed] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 26);
@@ -25,6 +26,11 @@ export function SiteHeader() {
   const closeMenu = () => {
     setOpen(false);
     setMobileServicesOpen(false);
+    setDesktopServicesSuppressed(false);
+  };
+
+  const closeDesktopServices = () => {
+    setDesktopServicesSuppressed(true);
   };
 
   return (
@@ -36,11 +42,11 @@ export function SiteHeader() {
 
         <nav className="nav-desktop" aria-label="Main navigation">
           <Link className="nav-link" href="/">Home</Link>
-          <div className="nav-dropdown">
-            <Link className="nav-button" href="/services">Services</Link>
+          <div className={`nav-dropdown ${desktopServicesSuppressed ? 'dropdown-suppressed' : ''}`} onMouseLeave={() => setDesktopServicesSuppressed(false)}>
+            <Link className="nav-button" href="/services" onClick={closeDesktopServices}>Services</Link>
             <div className="dropdown-panel" aria-label="Services submenu">
               {services.map((service) => (
-                <Link className="dropdown-item" href={service.href} key={service.title}>
+                <Link className="dropdown-item" href={service.href} key={service.title} onClick={closeDesktopServices}>
                   <strong>{service.title}</strong>
                   {service.badge}
                 </Link>
