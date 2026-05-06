@@ -2858,3 +2858,122 @@ body.menu-open {
     flex-basis: 78vw;
   }
 }
+
+
+/* v19 arrow-controlled carousel: replaces visible scrollbar carousels */
+.arrow-carousel {
+  position: relative;
+  margin-top: 12px;
+}
+
+.arrow-carousel-head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: -34px 0 14px;
+  pointer-events: none;
+}
+
+.client-trust .arrow-carousel-head {
+  margin-top: -40px;
+}
+
+.arrow-carousel-controls {
+  display: inline-flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.carousel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(24, 95, 165, 0.22);
+  border-radius: 999px;
+  color: var(--color-navy);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 12px 30px rgba(4, 44, 83, 0.10), inset 0 1px 0 rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(24, 95, 165, 0.38);
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(4, 44, 83, 0.14), inset 0 1px 0 rgba(255,255,255,0.95);
+}
+
+.carousel-arrow:active {
+  transform: translateY(0);
+}
+
+.arrow-carousel-track,
+.trusted-carousel,
+.client-outcome-carousel {
+  display: flex;
+  grid-template-columns: none !important;
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 6px;
+  padding: 6px 6px 18px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.arrow-carousel-track::-webkit-scrollbar,
+.trusted-carousel::-webkit-scrollbar,
+.client-outcome-carousel::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.trusted-carousel .client-logo-card,
+.client-logo-card[data-carousel-card] {
+  flex: 0 0 230px;
+  min-height: 112px;
+  scroll-snap-align: start;
+}
+
+.client-outcome-carousel .client-outcome-card,
+.client-outcome-card[data-carousel-card] {
+  flex: 0 0 min(390px, 86vw);
+  scroll-snap-align: start;
+}
+
+.carousel-heading-row {
+  padding-right: 116px;
+}
+
+.carousel-section-title-row {
+  padding-right: 116px;
+}
+
+@media (max-width: 768px) {
+  .arrow-carousel-head,
+  .client-trust .arrow-carousel-head {
+    margin: 10px 0 12px;
+    justify-content: flex-start;
+  }
+
+  .carousel-heading-row,
+  .carousel-section-title-row {
+    padding-right: 0;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trusted-carousel .client-logo-card,
+  .client-logo-card[data-carousel-card] {
+    flex-basis: 78vw;
+  }
+}

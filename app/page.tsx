@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ButtonLink } from '@/components/Buttons';
 import { ContactForm } from '@/components/Forms';
+import { ArrowCarousel } from '@/components/ArrowCarousel';
 import { services, industries, serviceThemeClass } from '@/lib/site-data';
 import { Handshake, MapPinned, PhoneCall, Wrench } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -227,10 +228,17 @@ export default function HomePage() {
 
       <section className="client-trust" aria-label="Trusted by global organisations">
         <div className="container">
-          <p className="client-trust-title">Trusted by Global Organisations</p>
-          <div className="client-logo-row client-logo-row-eight trusted-carousel">
+          <div className="carousel-section-title-row">
+            <p className="client-trust-title">Trusted by Global Organisations</p>
+          </div>
+          <ArrowCarousel
+            title="Trusted by Global Organisations"
+            trackClassName="trusted-carousel"
+            ariaLabel="Trusted client carousel"
+          >
             {trustedClients.map((client) => (
               <a
+                data-carousel-card
                 className="client-logo-card client-logo-link"
                 href={client.website}
                 target="_blank"
@@ -245,7 +253,7 @@ export default function HomePage() {
                 <small>{client.sector}</small>
               </a>
             ))}
-          </div>
+          </ArrowCarousel>
         </div>
       </section>
 
@@ -318,11 +326,24 @@ export default function HomePage() {
 
       <section className="section section-gray section-outcomes">
         <div className="container">
-          <p className="eyebrow">Client Outcomes</p>
-          <h2>What we&apos;ve delivered for Australian organisations</h2>
-          <div className="client-outcome-grid client-outcome-carousel" aria-label="Client outcome carousel">
+          <div className="carousel-heading-row">
+            <div>
+              <p className="eyebrow">Client Outcomes</p>
+              <h2>What we&apos;ve delivered for Australian organisations</h2>
+            </div>
+          </div>
+          <ArrowCarousel
+            title="Client Outcomes"
+            trackClassName="client-outcome-carousel"
+            ariaLabel="Client outcome carousel"
+          >
             {clientOutcomes.map((item) => (
-              <Link className={`client-outcome-card client-outcome-link ${item.theme}`} href={item.href} key={item.headline}>
+              <Link
+                data-carousel-card
+                className={`client-outcome-card client-outcome-link ${item.theme}`}
+                href={item.href}
+                key={item.headline}
+              >
                 <span className="client-outcome-sector">{item.sector}</span>
                 <h3>{item.headline}</h3>
                 <p>{item.body}</p>
@@ -330,7 +351,7 @@ export default function HomePage() {
                 <span className="outcome-read-more">View related service →</span>
               </Link>
             ))}
-          </div>
+          </ArrowCarousel>
         </div>
       </section>
 
