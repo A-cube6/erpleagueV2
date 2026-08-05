@@ -392,7 +392,7 @@ export default function HomePage() {
             <p className="eyebrow">Contact</p>
             <h2>Tell us where your ERP is creating friction</h2>
             <p>Use the form to request a free health check or ask about support, S/4HANA, GROW with SAP, landscape transformation, BTP/Fiori, integration, advisory, managed support, NetSuite or the client portal.</p>
-            <p><strong>Email:</strong> hello@erpleague.com.au<br /><strong>Phone:</strong> +61 410 284 201</p>
+            <p><strong>Email:</strong> hello@erpleague.com<br /><strong>Phone:</strong> +61 410 284 201</p>
           </div>
           <ContactForm />
         </div>
