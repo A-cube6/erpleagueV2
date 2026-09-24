@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ButtonLink } from '@/components/Buttons';
 import { VisualCard } from '@/components/Visuals';
 
@@ -65,12 +66,15 @@ export default function PortalPage() {
           <h2>Client-facing capability in one clear interface</h2>
           <div className="grid grid-4 services-snapshot">
             {modules.map(([module, description, capability]) => (
-              <article className="card portal-module premium-card" key={module}>
-                <span className="badge purple">Workspace</span>
-                <h3>{module}</h3>
-                <p>{description}</p>
-                <p><strong>Designed for:</strong> {capability}</p>
-              </article>
+              <Link className="portal-module-link" href="/login" key={module} aria-label={`Explore ${module} in the demo workspace`}>
+                <article className="card portal-module premium-card">
+                  <span className="badge purple">Workspace</span>
+                  <h3>{module}</h3>
+                  <p>{description}</p>
+                  <p><strong>Designed for:</strong> {capability}</p>
+                  <span className="portal-module-cta">Explore demo workspace →</span>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

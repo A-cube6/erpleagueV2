@@ -3,7 +3,8 @@ import { LoginPanel } from './LoginPanel';
 
 export const metadata: Metadata = {
   title: 'Client Login | ERPLeague Australia',
-  description: 'ERPLeague client portal login.'
+  description: 'ERPLeague client portal demo login.',
+  robots: { index: false, follow: false }
 };
 
 export default function LoginPage() {
@@ -13,7 +14,7 @@ export default function LoginPage() {
         <div className="login-copy">
           <p className="eyebrow dark">ERPLeague Client Portal</p>
           <h1>Sign in to your ERPLeague workspace</h1>
-          <p>Access support requests, health check summaries, delivery updates and ERPLeague workspace resources from one secure entry point.</p>
+          <p>Explore a preview of the client workspace for support, project delivery and governance. This demonstration uses sample content only.</p>
           <div className="login-proof-grid" aria-hidden="true">
             <span>Support</span>
             <span>Projects</span>

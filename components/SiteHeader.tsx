@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { navigation, services } from '@/lib/site-data';
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -34,7 +36,7 @@ export function SiteHeader() {
   };
 
   return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''} ${open ? 'open' : ''}`}>
+    <header className={`site-header ${scrolled || pathname === '/workspace' ? 'scrolled' : ''} ${open ? 'open' : ''}`}>
       <div className="container header-inner">
         <Link className="logo logo-with-image" href="/" onClick={closeMenu} aria-label="ERPLeague home">
           <img className="brand-logo-img" src="/assets/erp-league-logo.png" alt="ERPLeague" />

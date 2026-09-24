@@ -21,6 +21,10 @@ A clean Next.js website package built from the ERPLeague Australia Website Devel
 - `/partner` Partner program page
 - `/portal` Client portal entry page
 - `/login` Client login page with User ID and Password fields
+- `/workspace` CUST sample launchpad, reached from the demo login
+- `/workspace/assurance-demo` Connected sample scenario for SoD decisions, privileged access, audit evidence, support and delivery views; every launchpad tile links to a matching demo view
+
+The public `/portal` module cards link to `/login`. After signing in with the demo credentials, all eight launchpad tiles open a specific interactive view.
 - `/privacy` Privacy policy
 
 ## Run locally in VS Code
@@ -55,7 +59,9 @@ npm run start
 
 ## Important notes
 
-- The client login page is a front-end-only preview and does not authenticate against a backend yet. Connect it to Supabase Auth, Auth0, or another identity provider before using it for real client access.
+- The CUST demo accepts User ID `iagcust` and password `iloveerp`. It is a front-end-only demonstration: credentials are visible in the shipped JavaScript, and session storage only controls the on-screen flow. This is not real authentication or access control. The `/workspace` tiles use illustrative content and do not connect to CUST or SAP systems.
+- Connect a server-side identity provider and enforce authorisation before using this site for any real client access.
+- The assurance demo uses synthetic case data. Choices update computed sample metrics and a browser-session evidence trail; users can print the sample report or download its CSV. It has no SAP/CUST integration and does not record real approvals or activity logs.
 - Do not show real client data until authentication, organisation-level permissions and database Row Level Security are implemented.
 - SAP Partner, GROW with SAP, NetSuite and Oracle logos should be added only when approved licensed assets are available.
 - Contact and partner forms currently show a front-end success message only. Add an API route, FormSubmit, Supabase, HubSpot, or similar integration when ready.
@@ -97,5 +103,3 @@ They are referenced using root-relative paths such as:
 ```
 
 The images are compressed WebP versions of the generated C-suite style ERP/SAP service visuals and are intended for production website use.
-
-testiing changes
